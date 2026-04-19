@@ -1,0 +1,193 @@
+/* ─── Variables ─────────────────────────────────────── */
+:root {
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent: #00ffc8;
+  --color-orange: #f0a500;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #aaa;
+  --color-text-muted: #555;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+/* ─── Section ────────────────────────────────────────── */
+.section {
+  background: var(--color-bg);
+  padding: 6rem 3rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ─── Left ───────────────────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ─── Header ─────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.headingMuted { color: var(--color-text-muted); }
+.headingBold  { color: var(--color-text-primary); }
+
+/* ─── Card ───────────────────────────────────────────── */
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 3px 1fr;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-surface);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.card:hover {
+  border-color: rgba(0, 255, 200, 0.2);
+  background: #181818;
+}
+
+.accentBar {
+  background: var(--color-accent);
+}
+
+.cardBody {
+  padding: 1.6rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.degree {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 0.2rem;
+  letter-spacing: -0.3px;
+}
+
+.institution {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.duration {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+/* GPAX line */
+.gpax {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.gpaxValue {
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-left: 0.4rem;
+}
+
+/* ─── Tags ───────────────────────────────────────────── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Right: Canvas ──────────────────────────────────── */
+.right {
+  position: relative;
+  height: 460px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0d0d0d;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.canvasCaption {
+  position: absolute;
+  bottom: 1rem;
+  right: 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(0, 255, 200, 0.25);
+  letter-spacing: 0.1em;
+  margin: 0;
+  pointer-events: none;
+}

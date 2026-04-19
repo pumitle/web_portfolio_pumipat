@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap');
+
+/* ─── CSS Variables ─────────────────────────────────── */
+:root {
+  --color-bg: #0a0a0a;
+  --color-surface: #0d1117;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent: #00ffc8;
+  --color-accent-hover: #00e6b4;
+  --color-orange: #f0a500;
+  --color-text-primary: #ffffff;
+  --color-text-muted: #666;
+  --color-text-dim: #444;
+  --color-nav-link: #888;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+/* ─── Section ───────────────────────────────────────── */
+.section {
+  background: var(--color-bg);
+  min-height: 100vh;
+  font-family: var(--font-display);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grid overlay */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 200, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 200, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+
+
+/* ─── Hero Body ─────────────────────────────────────── */
+.body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 3rem 3rem;
+  min-height: calc(100vh - 80px);
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── Left Content ──────────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeSlideUp 0.7s ease both;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Status Badge */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 255, 200, 0.08);
+  border: 1px solid rgba(0, 255, 200, 0.25);
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  width: fit-content;
+  letter-spacing: 0.04em;
+}
+
+.statusBadge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Title */
+.title {
+  line-height: 1.0;
+  margin: 0;
+}
+
+.titleName {
+  display: block;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -2px;
+}
+
+.titleRole {
+  display: block;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 800;
+  color: var(--color-text-dim);
+  letter-spacing: -2px;
+}
+
+.titleHighlight {
+  display: block;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Quote */
+.quote {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.quote::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 1.2em;
+  background: var(--color-accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* CTA Buttons */
+.ctaGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.85rem 1.6rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.03em;
+}
+
+.btnPrimary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #aaa;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 400;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+  letter-spacing: 0.03em;
+}
+
+.btnSecondary:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--color-text-primary);
+}
+
+/* ─── Right: Monitor Mockup ─────────────────────────── */
+.right {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  animation: fadeSlideUp 0.7s 0.2s ease both;
+  opacity: 0;
+}
+
+.monitorFrame {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #111;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 200, 0.05),
+    0 40px 80px rgba(0, 0, 0, 0.8),
+    inset 0 0 80px rgba(0, 0, 0, 0.5);
+}
+
+.monitorInner {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.8fr;
+  gap: 2px;
+  background: #050505;
+  padding: 2px;
+}
+
+.codePanel {
+  background: var(--color-surface);
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Code Lines */
+.codeLine {
+  height: 7px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.07);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.short  { width: 40%; }
+.medium { width: 65%; }
+.long   { width: 90%; }
+
+.cyan   { background: rgba(0, 255, 200, 0.18); }
+.blue   { background: rgba(88, 166, 255, 0.18); }
+.orange { background: rgba(240, 165, 0, 0.18); }
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.7; }
+  50%       { opacity: 1; }
+}
+
+/* Monitor Glow */
+.monitorGlow {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 60px;
+  background: radial-gradient(ellipse, rgba(0, 255, 200, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}

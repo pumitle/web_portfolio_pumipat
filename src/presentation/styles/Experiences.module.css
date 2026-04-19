@@ -1,0 +1,181 @@
+/* ─── Variables ─────────────────────────────────────── */
+:root {
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent: #00ffc8;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #aaa;
+  --color-text-muted: #555;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+/* ─── Section ────────────────────────────────────────── */
+.section {
+  background: var(--color-bg);
+  padding: 6rem 3rem;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ─── Left: Canvas panel ─────────────────────────────── */
+.left {
+  position: sticky;
+  top: 6rem;
+  height: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.leftLabel {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sectionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.headingMuted {
+  color: var(--color-text-muted);
+}
+
+.headingBold {
+  color: var(--color-text-primary);
+}
+
+/* ─── Right: Timeline ────────────────────────────────── */
+.right {
+  padding-top: 0.5rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Timeline item ──────────────────────────────────── */
+.timelineItem {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 1.25rem;
+}
+
+/* Track: dot + line */
+.timelineTrack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  background: var(--color-bg);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s;
+}
+
+.timelineItem:hover .dot {
+  background: var(--color-accent);
+}
+
+.line {
+  flex: 1;
+  width: 1px;
+  background: var(--color-border);
+  margin-top: 6px;
+  margin-bottom: 0;
+  min-height: 32px;
+}
+
+/* ─── Card ───────────────────────────────────────────── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.4rem 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.card:hover {
+  border-color: rgba(0, 255, 200, 0.2);
+  background: #181818;
+}
+
+.cardHeader {
+  margin-bottom: 0.5rem;
+}
+
+.duration {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+}
+
+.jobTitle {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 0.2rem;
+  letter-spacing: -0.3px;
+}
+
+.company {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin: 0 0 0.85rem;
+}
+
+.description {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}

@@ -1,0 +1,103 @@
+/* ─── Variables ─────────────────────────────────────── */
+:root {
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-accent: #00ffc8;
+  --color-text-muted: #666;
+  --color-text-primary: #ffffff;
+  --font-mono: 'Space Mono', monospace;
+}
+
+/* ─── Section ────────────────────────────────────────── */
+.section {
+  background: var(--color-bg);
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+/* ─── Label ──────────────────────────────────────────── */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ─── Slider container ───────────────────────────────── */
+/* Fade mask on left/right edges */
+.tagSlider {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* ─── Scrolling tag row ──────────────────────────────── */
+.tagList {
+  display: flex;
+  gap: 0.6rem;
+  width: max-content;
+  animation: scroll 28s linear infinite;
+}
+
+/* Pause on hover */
+.tagSlider:hover .tagList {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── Tag ────────────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  cursor: default;
+}
+
+.tag:hover {
+  color: var(--color-text-primary);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: #1c1c1c;
+}
+
+/* ─── Icon inside tag ────────────────────────────────── */
+.tagIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.9;
+}

@@ -1,0 +1,147 @@
+/* ─── Variables ─────────────────────────────────────── */
+:root {
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent: #00ffc8;
+  --color-orange: #f0a500;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #aaa;
+  --color-text-muted: #666;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+/* ─── Section ───────────────────────────────────────── */
+.section {
+  background: var(--color-bg);
+  padding: 6rem 3rem;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ─── Left ──────────────────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ─── Profile Image ─────────────────────────────────── */
+.profileWrapper {
+  position: relative;
+  width: fit-content;
+}
+
+.profileImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-border);
+  display: block;
+}
+
+/* Green "online" dot ตรงมุมขวาล่าง */
+.profileOnline {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 3px solid var(--color-bg);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ─── Heading ───────────────────────────────────────── */
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.headingMuted {
+  color: var(--color-text-muted);
+}
+
+.headingBold {
+  color: var(--color-text-primary);
+}
+
+/* ─── Paragraphs ────────────────────────────────────── */
+.paragraph {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 44ch;
+}
+
+/* ─── Right: Grid ───────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ─── Card ──────────────────────────────────────────── */
+.card {
+  background: var(--color-surface);
+  padding: 1.8rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: background 0.2s;
+}
+
+.card:hover {
+  background: #1a1a1a;
+}
+
+.icon {
+  display: flex;
+  width: fit-content;
+}
+
+.icon_cyan   { color: var(--color-accent); }
+.icon_orange { color: var(--color-orange); }
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.cardDesc {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
