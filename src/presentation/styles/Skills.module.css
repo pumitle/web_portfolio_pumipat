@@ -19,6 +19,18 @@
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 2rem 1rem;
+  }
+}
+
 /* ─── Label ──────────────────────────────────────────── */
 .label {
   font-family: var(--font-mono);
